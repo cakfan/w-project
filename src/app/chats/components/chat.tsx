@@ -3,12 +3,11 @@
 import "stream-chat-react/dist/css/v2/index.css";
 import { useSession } from "@/lib/auth/client";
 import useInitializeChatClient from "../hooks/useInitializeChatClient";
-import { Loader2, Menu, X } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { Chat as StreamChat } from "stream-chat-react";
 import Sidebar from "./sidebar";
 import ChatChannel from "./channel";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import useWindowSize from "@/hooks/useWindowSize";
 import { mdBreakpoint } from "@/lib/tailwind";
 import { UserType } from "@/db/schema";
@@ -16,6 +15,7 @@ import { UserType } from "@/db/schema";
 export default function Chat({ you }: { you: UserType }) {
   const { data } = useSession();
   const chatClient = useInitializeChatClient();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [chatSidebarOpen, setChatSidebarOpen] = useState<boolean>(false);
   const windowSize = useWindowSize();
 
